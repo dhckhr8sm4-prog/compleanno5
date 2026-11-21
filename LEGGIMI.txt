@@ -1,0 +1,2 @@
+Lo stemma è già incorporato dentro index.html, quindi il sito funziona anche senza questa cartella.
+stemma.png è la copia dell'immagine originale, tenuta qui come riferimento.

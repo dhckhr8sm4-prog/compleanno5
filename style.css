@@ -1,0 +1,108 @@
+:root{
+  --azzurro:#12a0d7; --azzurro-scuro:#0b5f8a; --notte:#062a40;
+  --oro:#f4c542; --crema:#fff8e7; --bianco:#ffffff;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  min-height:100vh;
+  font-family:Georgia,"Times New Roman",serif;
+  color:var(--crema);
+  background:#061a3f;
+  text-align:center;
+  padding:0 16px 40px;
+}
+.top{padding-top:32px}
+.stemma{
+  width:120px;height:120px;margin:0 auto 16px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  border:2px dashed var(--oro);background:rgba(255,255,255,.08);overflow:hidden;
+}
+.stemma img{width:100%;height:100%;object-fit:contain}
+.stemma .ph{font:12px/1.3 system-ui,sans-serif;color:var(--oro);padding:8px}
+.stemma .ph small{opacity:.8}
+.kicker{margin:0;font:600 13px system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--oro)}
+h1{margin:8px 0;font-size:clamp(30px,7vw,56px);line-height:1.1;color:var(--bianco)}
+.sub{max-width:560px;margin:0 auto;font-size:clamp(16px,2.6vw,19px);opacity:.92}
+
+.count{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:32px 0 20px}
+.box{
+  min-width:78px;padding:14px 10px;border-radius:14px;
+  background:rgba(255,255,255,.1);border:1px solid rgba(244,197,66,.55);
+  box-shadow:0 6px 18px rgba(0,0,0,.25);
+}
+.box b{display:block;font:700 clamp(30px,8vw,48px)/1 system-ui,sans-serif;color:var(--oro);font-variant-numeric:tabular-nums}
+.box span{font:12px system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;opacity:.85}
+
+.frase{
+  min-height:3.2em;max-width:600px;margin:8px auto 20px;
+  font-size:clamp(18px,3vw,22px);font-style:italic;
+}
+.buttons{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
+button{
+  font:600 15px system-ui,sans-serif;cursor:pointer;
+  padding:12px 18px;border-radius:999px;border:2px solid var(--oro);
+  background:var(--oro);color:var(--notte);
+  transition:transform .12s ease,background .12s ease;
+}
+button:hover{transform:translateY(-2px)}
+button:active{transform:scale(.97)}
+button.alt{background:transparent;color:var(--crema)}
+button:focus-visible{outline:3px solid var(--bianco);outline-offset:3px}
+
+.panel{
+  max-width:560px;margin:0 auto 20px;padding:20px;border-radius:16px;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);
+}
+.hidden{display:none}
+.numero{font:700 72px/1 system-ui,sans-serif;color:var(--oro)}
+.significato{font-size:22px;margin:6px 0 12px}
+.storico{display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.storico i{font:600 13px system-ui,sans-serif;font-style:normal;padding:4px 10px;border-radius:999px;background:rgba(244,197,66,.2);border:1px solid var(--oro)}
+.auguri h2{margin:0 0 8px;font-size:30px;color:var(--oro)}
+.auguri p{margin:0;font-size:19px}
+
+footer{margin-top:30px;font:13px system-ui,sans-serif;opacity:.7}
+#coriandoli{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:10}
+@media (max-width:420px){.box{min-width:68px}}
+
+/* Sfondo animato: il golfo di Napoli al tramonto, con il Vesuvio che fuma */
+.sfondo{position:fixed;inset:0;width:100%;height:100%;z-index:-1;display:block}
+.sfondo .anim{animation-timing-function:linear;animation-iteration-count:infinite}
+.stella{animation-name:lampeggia;animation-timing-function:ease-in-out}
+.luce{animation-name:lampeggia;animation-duration:4s;animation-timing-function:ease-in-out}
+@keyframes lampeggia{0%,100%{opacity:.25}50%{opacity:1}}
+.fumo{animation-name:fumo;animation-duration:9s;animation-timing-function:ease-out;
+  transform-box:fill-box;transform-origin:center;opacity:0}
+@keyframes fumo{
+  0%{transform:translate(0,0) scale(.4);opacity:0}
+  15%{opacity:.55}
+  100%{transform:translate(70px,-230px) scale(2.8);opacity:0}}
+.pulsa{animation-name:pulsa;animation-duration:2.6s;animation-direction:alternate;animation-timing-function:ease-in-out;
+  transform-box:fill-box;transform-origin:center}
+@keyframes pulsa{from{opacity:.45;transform:scale(.9)}to{opacity:1;transform:scale(1.25)}}
+.brilla{animation-name:brilla;animation-duration:4.5s;animation-timing-function:ease-in-out;
+  transform-box:fill-box;transform-origin:center}
+@keyframes brilla{0%,100%{opacity:.25;transform:scaleX(.8)}50%{opacity:.75;transform:scaleX(1.1)}}
+.onda1{animation-name:scorri;animation-duration:22s}
+.onda2{animation-name:scorri;animation-duration:15s}
+.onda3{animation-name:scorri;animation-duration:10s}
+@keyframes scorri{from{transform:translateX(0)}to{transform:translateX(-1440px)}}
+.barca{animation-name:naviga;animation-duration:60s}
+@keyframes naviga{from{transform:translateX(-120px)}to{transform:translateX(1560px)}}
+.beccheggio{animation-name:beccheggia;animation-duration:3.2s;animation-direction:alternate;animation-timing-function:ease-in-out;
+  transform-box:fill-box;transform-origin:center bottom}
+@keyframes beccheggia{from{transform:rotate(-3deg) translateY(0)}to{transform:rotate(3deg) translateY(3px)}}
+@media (prefers-reduced-motion:reduce){.sfondo .anim{animation:none!important}.fumo{opacity:.3}}
+
+/* Leggibilità del testo sopra lo sfondo */
+.kicker,h1,.sub,footer{text-shadow:0 2px 12px rgba(0,0,0,.6)}
+.box,.panel,.frase{background:rgba(6,26,63,.5);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.box{border-color:rgba(244,197,66,.6)}
+.frase{padding:12px 18px;border-radius:14px;border:1px solid rgba(255,255,255,.2)}
+button.alt{background:rgba(6,26,63,.6)}
+footer{opacity:1;padding-top:6px}
+main{padding-bottom:40px}
+
+/* Quando lo stemma è presente: niente cornice tratteggiata */
+.stemma.con-stemma{border:none;background:none;overflow:visible;filter:drop-shadow(0 6px 14px rgba(0,0,0,.45))}
